@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    border-color: theme('colors.line');
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-brass/80 text-ink;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cloud;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tide/40 rounded-full;
+    border: 2px solid #ffffff;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-tide/70;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Eyebrow label: brass-deep reads well on light surfaces */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.32em] text-brass-deep;
+  }
+  .eyebrow-invert {
+    @apply text-brass-light;
+  }
+
+  /* Light card surface (default, for white sections) */
+  .card {
+    @apply relative overflow-hidden rounded-4xl border border-line bg-paper shadow-card;
+  }
+
+  /* Dark glossy card surface (for dark sections / over imagery) */
+  .bento-card {
+    @apply relative overflow-hidden rounded-4xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.01];
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+      0 28px 70px -32px rgba(10, 11, 13, 0.85);
+  }
+
+  .bento-card::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 opacity-60;
+    background: radial-gradient(120% 80% at 0% 0%, rgba(255, 255, 255, 0.1), transparent 55%);
+  }
+
+  .btn-brass {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-brass px-7 py-3.5 font-medium text-ink shadow-brass transition-all duration-300 ease-out-expo hover:bg-brass-light;
+  }
+
+  /* Ghost button on light surfaces */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 px-7 py-3.5 font-medium text-ink transition-all duration-300 ease-out-expo hover:border-brass-deep hover:text-brass-deep;
+  }
+
+  /* Ghost button on dark surfaces / imagery */
+  .btn-ghost-invert {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 font-medium text-foam transition-all duration-300 ease-out-expo hover:border-brass hover:text-brass-light;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-brass after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gradient-foam {
+    @apply bg-gradient-to-b from-foam via-foam to-spray/70 bg-clip-text text-transparent;
+  }
+  .text-gradient-brass {
+    @apply bg-gradient-to-r from-brass-light via-brass to-brass-deep bg-clip-text text-transparent;
+  }
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
