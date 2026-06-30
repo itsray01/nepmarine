@@ -15,7 +15,7 @@ import {
 
 export const stats = [
   { value: '24/7', label: 'Operational coverage across all serviced ports' },
-  { value: '3', label: 'Countries served across Singapore, Malaysia, and Indonesia' },
+  { value: '10', label: 'Countries served across Asia-Pacific and beyond' },
   { value: '2024', label: 'Founded in Singapore, built on decades of know-how' },
   { value: '100%', label: 'Owner-protective, transparent husbandry handling' },
 ]
@@ -164,6 +164,55 @@ export const ports = [
     body: 'Local partners and on-the-ground know-how across key Indonesian ports and anchorages.',
     harbours: ['Batam', 'Tanjung Priok', 'Surabaya', 'Nipah Anchorage'],
     icon: Anchor,
+  },
+  {
+    country: 'Vietnam',
+    tagline: 'Mekong gateway',
+    body: 'Responsive port-call handling along Vietnam’s fast-growing trade corridors and river terminals.',
+    harbours: ['Cat Lai', 'Cai Mep', 'Hai Phong', 'Da Nang'],
+    icon: Ship,
+  },
+  {
+    country: 'Thailand',
+    tagline: 'Gulf coast coverage',
+    body: 'Dependable agency across Thailand’s principal gateways, from container calls to bunkering.',
+    harbours: ['Laem Chabang', 'Bangkok', 'Map Ta Phut', 'Sriracha'],
+    icon: Fuel,
+  },
+  {
+    country: 'China',
+    tagline: 'Deep-water scale',
+    body: 'Coordinated support at China’s mega-ports with the throughput your schedule demands.',
+    harbours: ['Yangshan', 'Shanghai', 'Ningbo', 'Shenzhen'],
+    icon: Container,
+  },
+  {
+    country: 'India',
+    tagline: 'Subcontinent reach',
+    body: 'On-the-ground expertise across India’s busiest container and bulk terminals.',
+    harbours: ['Nhava Sheva (JNPT)', 'Mumbai', 'Mundra', 'Chennai'],
+    icon: ShieldCheck,
+  },
+  {
+    country: 'Bangladesh',
+    tagline: 'Bay of Bengal access',
+    body: 'Reliable husbandry and clearances at Bangladesh’s primary seaport and anchorages.',
+    harbours: ['Chittagong', 'Mongla', 'Kutubdia Anchorage', 'Matarbari'],
+    icon: LifeBuoy,
+  },
+  {
+    country: 'Guam',
+    tagline: 'Pacific waypoint',
+    body: 'Mid-Pacific port-call support for transiting vessels and crew logistics at Apra Harbor.',
+    harbours: ['Apra Harbor', 'Piti', 'Cabras Island', 'Outer Anchorage'],
+    icon: Droplets,
+  },
+  {
+    country: 'Australia',
+    tagline: 'Southern hub',
+    body: 'Compliant, owner-protective attendance across major Australian east-coast gateways.',
+    harbours: ['Port Botany', 'Sydney', 'Melbourne', 'Brisbane'],
+    icon: Users,
   },
 ]
 

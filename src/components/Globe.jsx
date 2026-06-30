@@ -146,8 +146,8 @@ function Marker({ port, glowTexture, active, onSelect, onHoverChange }) {
 
       {/* Hover name label */}
       {hovered && !active && (
-        <Html center distanceFactor={16} style={{ pointerEvents: 'none' }} zIndexRange={[20, 0]}>
-          <div className="whitespace-nowrap rounded-full border border-white/15 bg-ink/90 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-foam/90 backdrop-blur-sm">
+        <Html distanceFactor={16} style={{ pointerEvents: 'none', transform: 'translateY(-50%) scale(0.45)', transformOrigin: 'left center' }} zIndexRange={[20, 0]}>
+          <div className="ml-3 whitespace-nowrap rounded-full border border-white/15 bg-ink/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foam/90 backdrop-blur-sm">
             {port.name}
           </div>
         </Html>
