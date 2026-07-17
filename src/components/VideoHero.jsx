@@ -12,7 +12,7 @@ export default function VideoHero() {
   const words = ['Your', 'Trusted', 'Maritime', 'Partner']
 
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pt-18">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pt-20">
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -38,7 +38,7 @@ export default function VideoHero() {
         >
           <motion.span variants={fadeUp} className="eyebrow eyebrow-invert">
             <span className="h-px w-10 bg-brass/70" />
-            Singapore · Malaysia · Indonesia
+            Serving 10 countries since 2024
           </motion.span>
 
           <h1 className="mt-7 font-display text-display-lg font-light leading-[0.95] text-foam">
@@ -61,7 +61,7 @@ export default function VideoHero() {
               ))}
             </span>
             <motion.span variants={fadeUp} className="mt-2 block text-gradient-brass">
-              across the seas of Southeast Asia.
+              across the seas of Asia Pacific.
             </motion.span>
           </h1>
 

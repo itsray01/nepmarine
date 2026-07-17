@@ -1,4 +1,4 @@
-import { MapPin, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import GlobeSection from '../components/GlobeSection'
 import Reveal from '../components/Reveal'
@@ -17,37 +17,21 @@ export default function Ports() {
       />
 
       <section className="shell py-16">
-        <Reveal variants={stagger(0.12)} className="grid gap-6 lg:grid-cols-3">
+        <Reveal
+          variants={stagger(0.08)}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+        >
           {ports.map((p) => {
             const Icon = p.icon
             return (
               <Reveal key={p.country} variants={scaleIn}>
-                <div className="card flex h-full flex-col p-8 transition-shadow duration-500 hover:shadow-card-hover">
-                  <span className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl border border-line bg-cloud text-brass-deep">
-                    <Icon className="h-6 w-6" strokeWidth={1.6} />
+                <div className="card flex h-full items-center gap-3 p-5 transition-shadow duration-300 hover:shadow-card-hover">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-cloud text-brass-deep">
+                    <Icon className="h-5 w-5" strokeWidth={1.6} />
                   </span>
-
-                  <span className="relative z-10 mt-8 block font-mono text-[11px] uppercase tracking-[0.28em] text-brass-deep/80">
-                    {p.tagline}
-                  </span>
-                  <h2 className="relative z-10 mt-2 font-display text-3xl font-light text-ink">
+                  <h2 className="font-display text-xl font-light text-ink">
                     {p.country}
                   </h2>
-                  <p className="relative z-10 mt-3 text-sm leading-relaxed text-slate">
-                    {p.body}
-                  </p>
-
-                  <ul className="relative z-10 mt-7 space-y-2.5 border-t border-line pt-6">
-                    {p.harbours.map((h) => (
-                      <li
-                        key={h}
-                        className="flex items-center gap-2.5 text-sm text-slate"
-                      >
-                        <MapPin className="h-4 w-4 text-brass-deep/70" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </Reveal>
             )

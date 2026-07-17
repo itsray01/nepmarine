@@ -13,14 +13,6 @@ const COLUMNS = [
       { label: 'Contact Us', to: '/contact' },
     ],
   },
-  {
-    title: 'Ports',
-    links: [
-      { label: 'Singapore', to: '/ports' },
-      { label: 'Malaysia', to: '/ports' },
-      { label: 'Indonesia', to: '/ports' },
-    ],
-  },
 ]
 
 export default function Footer() {
@@ -34,13 +26,12 @@ export default function Footer() {
 
       <div className="shell relative">
         {/* Top band */}
-        <Reveal className="grid gap-12 py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
+        <Reveal className="grid gap-x-12 gap-y-12 py-20 lg:grid-cols-[1.8fr_1fr_1.3fr]">
           <div className="max-w-sm">
             <Logo />
             <p className="mt-6 text-sm leading-relaxed text-foam/60">
               Founded in Singapore in 2024, Nepmarine Agency delivers reliable ship
-              agency support to charterers and owners across Singapore, Malaysia, and
-              Indonesia.
+              agency support to charterers and owners, serving 10 countries.
             </p>
 
             <span className="mt-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-foam/70">
@@ -110,7 +101,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-foam/75">
                 <MapPin className="h-4 w-4 text-spray" />
-                Singapore · Malaysia · Indonesia
+                Serving 10 Countries
               </li>
             </ul>
           </div>

@@ -29,10 +29,10 @@ export const serviceGroups = [
     summary:
       'Seamless port calls handled end to end, from clearances and berthing to cargo coordination.',
     points: [
-      'Customs & immigration clearance',
-      'Pilot & tug booking, berth scheduling',
-      'Cargo operations supervision',
-      'Documentation & port formalities',
+      'Vessel certificate updates & GDV declaration',
+      'Inward / outward clearance & pilot booking',
+      'Berthing prospect & tidal window liaison',
+      'Documentation & Customs MRS updates',
     ],
   },
   {
@@ -43,10 +43,10 @@ export const serviceGroups = [
     summary:
       'Keep vessels moving with responsive on-the-ground support around the clock.',
     points: [
-      'Crew changes & repatriation',
-      'Spares & stores delivery',
-      'Bunker operations coordination',
-      'Medical & emergency assistance',
+      'Bunker & deslop operation coordination',
+      'Fresh water & supply boat arrangements',
+      'Crew change, medical visits & visas',
+      'Cash to master (CTM)',
     ],
   },
   {
@@ -58,9 +58,10 @@ export const serviceGroups = [
       'Complex, high-stakes operations executed with precision and local expertise.',
     points: [
       'Ship-to-ship (STS) coordination',
-      'Underwater hull cleaning & inspection',
-      'Owner-protective (P&I) attendance',
-      'Survey & class arrangements',
+      'Underwater cleaning & inspection',
+      'Discreet naval & warship husbandry',
+      'Purchase & delivery of ship spares',
+      'BL signing assistance',
     ],
   },
   {
@@ -71,10 +72,10 @@ export const serviceGroups = [
     summary:
       'Thoughtful extras that reduce friction and protect your bottom line.',
     points: [
-      'Husbandry & cash-to-master',
-      'Transparent disbursement accounts',
-      'Logistics & freight forwarding',
-      'Local procurement & sourcing',
+      'Daily vessel movement & SOF updates',
+      'Cargo document consolidation',
+      'Charterer redocumentation support',
+      'Owner-protective husbandry attendance',
     ],
   },
 ]
@@ -125,19 +126,19 @@ export const bentoFeatures = [
 export const testimonials = [
   {
     quote:
-      'Nepmarine has been our go-to partner for vessel operations in Singapore and beyond. Their team is incredibly efficient with customs clearances and pilot bookings, saving us time and hassle.',
+      'NEPMARINE has been our go-to partner for vessel operations in Singapore and beyond. Their team is incredibly efficient in handling customs clearances and pilot bookings, saving us time and hassle. We trust them to handle even the most complex tasks with professionalism.',
     name: 'Mark L.',
     role: 'Fleet Operations Manager',
   },
   {
     quote:
-      'The team consistently goes above and beyond. From bunker operations to crew changes, they manage everything seamlessly. Their knowledge of ports in Singapore, Malaysia, and Indonesia is invaluable.',
+      'The team at NEPMARINE consistently goes above and beyond. From bunker operations to crew changes, they manage everything seamlessly. Their in-depth knowledge of ports across 10 countries makes them an invaluable partner for our fleet.',
     name: 'Sophia T.',
     role: 'Chartering Director',
   },
   {
     quote:
-      'We worked with Nepmarine for ship-to-ship coordination and underwater cleaning. Their attention to detail and clear communication ensured smooth operations every step of the way.',
+      'We recently worked with NEPMARINE for ship-to-ship coordination and underwater cleaning. Their attention to detail and excellent communication ensured smooth operations every step of the way. Highly recommended for anyone needing a dependable local agent.',
     name: 'Jonathan How',
     role: 'Technical Superintendent',
   },
@@ -147,22 +148,32 @@ export const ports = [
   {
     country: 'Singapore',
     tagline: 'The maritime crossroads of Asia',
-    body: 'Round-the-clock agency at the world’s busiest transshipment hub, from anchorage calls to full port operations.',
-    harbours: ['Port of Singapore', 'Jurong', 'Sembawang', 'Eastern Anchorages'],
+    body: 'Round-the-clock agency at the world’s busiest transshipment hub, overseeing the loading and discharging of petroleum cargoes with precision.',
+    harbours: ['Singapore'],
     icon: Compass,
   },
   {
     country: 'Malaysia',
     tagline: 'Straits-side strength',
-    body: 'Coverage along the Strait of Malacca with reliable clearances, bunkering, and crew logistics.',
-    harbours: ['Port Klang', 'Tanjung Pelepas', 'Johor', 'Pasir Gudang'],
+    body: 'Extensive coverage along the Strait of Malacca with reliable clearances, bunkering, and cargo operations across key terminals.',
+    harbours: [
+      'Tanjung Pelepas',
+      'Tanjung Bin',
+      'Pasir Gudang',
+      'Tanjung Langsat',
+      'Pengerang',
+      'Melaka',
+      'Linggi',
+      'Port Klang',
+      'Port Dickson',
+    ],
     icon: Waves,
   },
   {
     country: 'Indonesia',
     tagline: 'Archipelago reach',
-    body: 'Local partners and on-the-ground know-how across key Indonesian ports and anchorages.',
-    harbours: ['Batam', 'Tanjung Priok', 'Surabaya', 'Nipah Anchorage'],
+    body: 'Local partners and on-the-ground know-how across key Indonesian anchorages for smooth, timely tanker operations.',
+    harbours: ['Nipah', 'Karimun'],
     icon: Anchor,
   },
   {
@@ -208,10 +219,10 @@ export const ports = [
     icon: Droplets,
   },
   {
-    country: 'Australia',
-    tagline: 'Southern hub',
-    body: 'Compliant, owner-protective attendance across major Australian east-coast gateways.',
-    harbours: ['Port Botany', 'Sydney', 'Melbourne', 'Brisbane'],
+    country: 'Philippines',
+    tagline: 'Island-nation network',
+    body: 'Trusted attendance across the Philippines’ principal harbours and transhipment anchorages.',
+    harbours: ['Port of Manila', 'Batangas', 'Subic Bay', 'Cebu'],
     icon: Users,
   },
 ]
@@ -311,61 +322,82 @@ export const globePorts = [
     email: 'guam@nepmarine.com',
   },
   {
-    id: 'australia',
-    name: 'Australia',
-    port: 'Port Botany, Sydney',
-    lat: -33.9600,
-    lng: 151.2300,
-    address: 'Penrhyn Rd, Port Botany NSW 2036',
-    phone: '+61 2 9000 4000',
-    email: 'australia@nepmarine.com',
+    id: 'philippines',
+    name: 'Philippines',
+    port: 'Port of Manila',
+    lat: 14.5800,
+    lng: 120.9700,
+    address: 'South Harbor, Port Area, Manila 1018',
+    phone: '+63 2 8527 0000',
+    email: 'philippines@nepmarine.com',
   },
 ]
 
-// Placeholder team. Add an `image` URL to any member to show a photo instead
-// of the generated initials avatar.
-export const team = [
+// Leadership. Add an `image` URL to any member to show a photo instead of the
+// generated initials avatar.
+export const generalManager = {
+  name: 'Heinrich Lim',
+  role: 'General Manager',
+  focus: 'Oversees Commercial, Naval, and Business Relations across the agency.',
+  email: 'heinrich.lim@nepmarine.com',
+  businessCard: 'https://blinq.me/cmrahjx0m00410bs66l0n2ck1?bs=iwa',
+  linktree: 'https://linktr.ee/nepmarine.agency',
+  image: '/team-heinrich.png',
+}
+
+// Departments branching from the General Manager.
+export const teamGroups = [
   {
-    name: 'Rajesh Kumar',
-    role: 'Managing Director',
-    focus: 'Sets the course for the agency and our key owner relationships.',
-    location: 'Singapore',
-    image: '',
+    title: 'Commercial Operations',
+    members: [
+      {
+        name: 'Abel Lam',
+        role: 'Commercial Operations',
+        email: 'agency@nepmarine.com',
+        image: '',
+      },
+      {
+        name: 'Charmaine Yeow',
+        role: 'Commercial Operations',
+        email: 'agency@nepmarine.com',
+        image: '',
+      },
+    ],
   },
   {
-    name: 'Mei Ling Tan',
-    role: 'Operations Director',
-    focus: 'Oversees port-call execution and on-the-ground coordination across the region.',
-    location: 'Singapore',
-    image: '',
+    title: 'Naval Operations',
+    members: [
+      {
+        name: 'Abdul Muhaimin',
+        role: 'Naval Operations Manager · Husbanding',
+        email: 'navy@nepmarine.com',
+        businessCard: 'https://blinq.me/cmr20ms49058j0bs6c32xcwq2',
+        image: '/team-abdul.png',
+      },
+    ],
   },
   {
-    name: 'Arif Rahman',
-    role: 'Husbandry & P&I Lead',
-    focus: 'Owner-protective attendance, surveys, and disbursement integrity.',
-    location: 'Batam',
-    image: '',
+    title: 'Business Relations',
+    members: [
+      {
+        name: 'Lee Yi Xuan',
+        role: 'Business Relations',
+        email: 'agency@nepmarine.com',
+        image: '',
+      },
+    ],
   },
   {
-    name: 'Daniel Lim',
-    role: 'Bunker & Logistics Manager',
-    focus: 'Coordinates bunker calls, spares, stores, and freight movements.',
-    location: 'Singapore',
-    image: '',
-  },
-  {
-    name: 'Siti Nurhaliza',
-    role: 'Crew & Documentation Manager',
-    focus: 'Crew changes, immigration, and port formalities, handled end to end.',
-    location: 'Port Klang',
-    image: '',
-  },
-  {
-    name: 'James Wong',
-    role: 'Business Development',
-    focus: 'Builds new partnerships across Singapore, Malaysia, and Indonesia.',
-    location: 'Singapore',
-    image: '',
+    title: 'HR & Accounts',
+    members: [
+      {
+        name: 'Nadhirah Husna',
+        role: 'HR & Accounts Manager',
+        email: 'agency@nepmarine.com',
+        businessCard: 'https://s.blinq.me/cmr3g675o00940cs6y78xrp42?bs=icl',
+        image: '',
+      },
+    ],
   },
 ]
 

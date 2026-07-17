@@ -15,7 +15,7 @@ const details = [
   {
     icon: MapPin,
     label: 'We operate in',
-    value: 'Singapore · Malaysia · Indonesia',
+    value: '10 Countries',
   },
   { icon: Clock, label: 'Availability', value: '24 / 7 operational support' },
 ]
@@ -53,7 +53,7 @@ export default function Contact() {
       <PageHero
         eyebrow="Get in touch"
         title="Let’s plan your next port call."
-        description="Tell us about your vessel and route. Our team responds quickly, day or night, across Singapore, Malaysia, and Indonesia."
+        description="Tell us about your vessel and route. Our team responds quickly, day or night, serving 10 countries."
       />
 
       <section className="shell grid gap-10 pb-24 lg:grid-cols-[1fr_1.2fr] lg:items-start">

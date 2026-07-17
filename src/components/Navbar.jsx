@@ -83,8 +83,8 @@ export default function Navbar() {
             : 'border-line bg-paper'
         }`}
       >
-        <nav className="shell flex h-18 items-center justify-between gap-6">
-          <Logo tone={isDark ? 'light' : 'dark'} />
+        <nav className="shell flex h-20 items-center justify-between gap-6">
+          <Logo tone={isDark ? 'light' : 'dark'} heightClass="h-16" />
 
           <ul className="hidden items-center gap-9 lg:flex">
             {NAV.map((item) => (
@@ -139,7 +139,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-18 z-40 bg-ink/97 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 top-20 z-40 bg-ink/97 backdrop-blur-2xl lg:hidden"
           >
             <motion.ul
               className="shell flex flex-col gap-2 py-10"
