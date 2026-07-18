@@ -72,10 +72,10 @@ export const serviceGroups = [
     summary:
       'Thoughtful extras that reduce friction and protect your bottom line.',
     points: [
-      'Daily vessel movement & SOF updates',
-      'Cargo document consolidation',
-      'Charterer redocumentation support',
-      'Owner-protective husbandry attendance',
+      '24/7 vessel movement updates',
+      'Multi-channel communication tailored to client preferences',
+      'Cost-efficient service coordination',
+      'Competitive sourcing and expense control',
     ],
   },
 ]

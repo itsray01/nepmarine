@@ -79,7 +79,7 @@ export default function Services() {
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-brass-light">
                   <Lock className="h-3.5 w-3.5" />
-                  Naval & defence
+                  Specialised Services
                 </span>
                 <h2 className="mt-6 font-display text-display-sm font-light leading-[1.05] text-foam">
                   Discreet husbandry for naval and defence vessels.

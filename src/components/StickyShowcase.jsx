@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import { fadeUp, spring } from '../lib/motion'
+import { spring } from '../lib/motion'
 
 // A premium sticky split showcase: a pinned visual "stage" on the left that
 // morphs as scroll-driven feature panels on the right come into view.
@@ -102,13 +101,16 @@ export default function StickyShowcase({
                 key={f.title}
                 onViewportEnter={() => setActive(i)}
                 onClick={() => setActive(i)}
-                viewport={{ amount: 0.6, margin: '-20% 0px -20% 0px' }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ margin: '-48% 0px -48% 0px' }}
                 className="group border-t border-line py-9 text-left last:border-b lg:py-12"
               >
-                <div className="flex items-start gap-5">
+                <motion.div
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start gap-5"
+                >
                   {/* Mobile-only icon (stage is hidden on small screens) */}
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-line bg-cloud text-brass-deep lg:hidden">
                     {Icon && <Icon className="h-6 w-6" strokeWidth={1.6} />}
@@ -117,14 +119,14 @@ export default function StickyShowcase({
                   <div className="flex-1">
                     <div className="flex items-center justify-between gap-4">
                       <h3
-                        className={`font-display text-2xl font-light transition-colors duration-300 sm:text-3xl ${
+                        className={`font-display text-2xl font-light transition-colors duration-500 ease-out sm:text-3xl ${
                           isActive ? 'text-ink' : 'text-ink/35'
                         }`}
                       >
                         {f.title}
                       </h3>
                       <ArrowUpRight
-                        className={`h-5 w-5 shrink-0 transition-all duration-300 ${
+                        className={`h-5 w-5 shrink-0 transition-all duration-500 ${
                           isActive
                             ? 'text-brass-deep opacity-100'
                             : 'text-slate/40 opacity-0 group-hover:opacity-100'
@@ -138,7 +140,7 @@ export default function StickyShowcase({
                         height: isActive ? 'auto' : 0,
                         opacity: isActive ? 1 : 0,
                       }}
-                      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
                       <p className="pt-3 text-base leading-relaxed text-slate">
@@ -146,17 +148,11 @@ export default function StickyShowcase({
                       </p>
                     </motion.div>
                   </div>
-                </div>
+                </motion.div>
               </motion.button>
             )
           })}
 
-          <Reveal variants={fadeUp} className="pt-10">
-            <p className="text-sm text-slate/80">
-              Every service is delivered by a dedicated team that knows the region
-              intimately.
-            </p>
-          </Reveal>
         </div>
       </div>
     </section>
