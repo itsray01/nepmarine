@@ -9,7 +9,7 @@ import { fadeUp, stagger, spring } from '../lib/motion'
 const VIDEO_SRC = '/hero-ship.mp4'
 
 export default function VideoHero() {
-  const words = ['Your', 'Trusted', 'Maritime', 'Partner']
+  const words = ['Your', 'Trusted', 'Maritime', 'Agency']
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pt-20">
@@ -42,7 +42,7 @@ export default function VideoHero() {
           </motion.span>
 
           <h1 className="mt-7 font-display text-display-lg font-light leading-[0.95] text-foam">
-            <span className="block overflow-hidden">
+            <span className="block overflow-hidden pb-[0.14em]">
               {words.map((w, i) => (
                 <motion.span
                   key={w}

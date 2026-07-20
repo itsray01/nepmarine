@@ -29,10 +29,10 @@ export const serviceGroups = [
     summary:
       'Seamless port calls handled end to end, from clearances and berthing to cargo coordination.',
     points: [
-      'Vessel certificate updates & GDV declaration',
-      'Inward / outward clearance & pilot booking',
-      'Berthing prospect & tidal window liaison',
-      'Documentation & Customs MRS updates',
+      'Comprehensive port agency solutions',
+      'Direct operations in Singapore',
+      'Coordinated support via established sub-agents',
+      'Extensive coverage across Southeast Asia',
     ],
   },
   {
@@ -53,7 +53,7 @@ export const serviceGroups = [
     id: 'specialized',
     number: '03',
     icon: Anchor,
-    title: 'Specialized Services',
+    title: 'Other Services',
     summary:
       'Complex, high-stakes operations executed with precision and local expertise.',
     points: [
@@ -148,7 +148,7 @@ export const ports = [
   {
     country: 'Singapore',
     tagline: 'The maritime crossroads of Asia',
-    body: 'Round-the-clock agency at the world’s busiest transshipment hub, overseeing the loading and discharging of petroleum cargoes with precision.',
+    body: 'Round-the-clock agency at the world’s busiest transshipment hub, ensuring seamless coordination and efficient support throughout every port call.',
     harbours: ['Singapore'],
     icon: Compass,
   },
@@ -338,7 +338,6 @@ export const globePorts = [
 export const generalManager = {
   name: 'Heinrich Lim',
   role: 'General Manager',
-  focus: 'Oversees Commercial, Naval, and Business Relations across the agency.',
   email: 'heinrich.lim@nepmarine.com',
   businessCard: 'https://blinq.me/cmrahjx0m00410bs66l0n2ck1?bs=iwa',
   linktree: 'https://linktr.ee/nepmarine.agency',
@@ -360,7 +359,7 @@ export const teamGroups = [
         name: 'Charmaine Yeow',
         role: 'Commercial Operations',
         email: 'agency@nepmarine.com',
-        image: '',
+        image: '/team-charmaine.png',
       },
     ],
   },
@@ -369,7 +368,7 @@ export const teamGroups = [
     members: [
       {
         name: 'Abdul Muhaimin',
-        role: 'Naval Operations Manager · Husbanding',
+        role: 'Naval Operations Manager',
         email: 'navy@nepmarine.com',
         businessCard: 'https://blinq.me/cmr20ms49058j0bs6c32xcwq2',
         image: '/team-abdul.png',
@@ -391,7 +390,7 @@ export const teamGroups = [
     title: 'HR & Accounts',
     members: [
       {
-        name: 'Nadhirah Husna',
+        name: 'Nadhira Husna',
         role: 'HR & Accounts Manager',
         email: 'agency@nepmarine.com',
         businessCard: 'https://s.blinq.me/cmr3g675o00940cs6y78xrp42?bs=icl',

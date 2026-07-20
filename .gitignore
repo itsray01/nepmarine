@@ -27,3 +27,6 @@ pnpm-debug.log*
 .vercel
 
 .vercel
+
+# Local video backups (not used by the site)
+public/hero-ship-original.mp4

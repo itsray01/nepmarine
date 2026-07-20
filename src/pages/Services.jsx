@@ -1,10 +1,61 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { Check, ArrowRight, ShieldCheck, Lock } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import CTASection from '../components/CTASection'
 import { fadeUp, scaleIn, stagger } from '../lib/motion'
 import { serviceGroups } from '../lib/content'
+
+function MaritimeCompass() {
+  return (
+    <motion.div
+      className="relative grid h-16 w-16 shrink-0 place-items-center rounded-full border border-line bg-cloud shadow-card"
+      whileHover={{ scale: 1.1 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+      aria-hidden="true"
+    >
+      {/* Slowly rotating compass rose */}
+      <motion.svg
+        viewBox="0 0 100 100"
+        className="absolute h-12 w-12 text-brass-deep/45"
+        fill="currentColor"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
+      >
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        {Array.from({ length: 12 }).map((_, i) => (
+          <rect
+            key={i}
+            x="49.2"
+            y="6"
+            width="1.6"
+            height={i % 3 === 0 ? 9 : 6}
+            transform={`rotate(${i * 30} 50 50)`}
+          />
+        ))}
+        <path
+          transform="rotate(45 50 50)"
+          opacity="0.5"
+          d="M50 26 L53 47 L74 50 L53 53 L50 74 L47 53 L26 50 L47 47 Z"
+        />
+        <path d="M50 14 L54 46 L86 50 L54 54 L50 86 L46 54 L14 50 L46 46 Z" />
+      </motion.svg>
+
+      {/* Gently swaying needle */}
+      <motion.svg
+        viewBox="0 0 100 100"
+        className="relative h-9 w-9"
+        animate={{ rotate: [-7, 7, -7] }}
+        transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
+      >
+        <polygon points="50,18 45.5,50 54.5,50" className="fill-brass-deep" />
+        <polygon points="50,82 45.5,50 54.5,50" className="fill-slate/60" />
+        <circle cx="50" cy="50" r="4.5" className="fill-ink" />
+      </motion.svg>
+    </motion.div>
+  )
+}
 
 export default function Services() {
   return (
@@ -86,9 +137,10 @@ export default function Services() {
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-relaxed text-foam/70">
                   Nepmarine is entrusted with the confidential handling of warships and
-                  naval vessels. We support defence and military operations with the
-                  utmost discretion — coordinating secure port calls, husbandry, and
-                  logistics while safeguarding every operational detail.
+                  naval vessels, delivering complete naval husbandry services across both
+                  offshore and onshore operations. We support defence and military
+                  activities with the utmost discretion — coordinating secure port calls,
+                  husbandry, and logistics while safeguarding every operational detail.
                 </p>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-foam/50">
                   Our naval desk operates under strict confidentiality. We are proud to
@@ -124,6 +176,41 @@ export default function Services() {
           </div>
         </Reveal>
       </section>
+
+      {/* Section separator */}
+      <Reveal variants={fadeUp} className="shell py-16">
+        <div className="group/sep flex items-center justify-center gap-4">
+          {/* left line — golden sweeps from the compass outward on hover */}
+          <span className="relative h-px w-full max-w-[30rem]">
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-line to-line" />
+            <span className="absolute inset-0 origin-right scale-x-0 bg-gradient-to-l from-brass via-brass to-brass/10 transition-transform duration-700 ease-out group-hover/sep:scale-x-100" />
+          </span>
+
+          <svg
+            viewBox="0 0 100 140"
+            aria-hidden="true"
+            className="h-4 w-3 shrink-0 fill-brass transition-transform duration-500 ease-out group-hover/sep:scale-[1.35]"
+          >
+            <path d="M50 6 C54 30 70 52 94 70 C70 88 54 110 50 134 C46 110 30 88 6 70 C30 52 46 30 50 6 Z" />
+          </svg>
+
+          <MaritimeCompass />
+
+          <svg
+            viewBox="0 0 100 140"
+            aria-hidden="true"
+            className="h-4 w-3 shrink-0 fill-brass transition-transform duration-500 ease-out group-hover/sep:scale-[1.35]"
+          >
+            <path d="M50 6 C54 30 70 52 94 70 C70 88 54 110 50 134 C46 110 30 88 6 70 C30 52 46 30 50 6 Z" />
+          </svg>
+
+          {/* right line — golden sweeps from the compass outward on hover */}
+          <span className="relative h-px w-full max-w-[30rem]">
+            <span className="absolute inset-0 bg-gradient-to-l from-transparent via-line to-line" />
+            <span className="absolute inset-0 origin-left scale-x-0 bg-gradient-to-r from-brass via-brass to-brass/10 transition-transform duration-700 ease-out group-hover/sep:scale-x-100" />
+          </span>
+        </div>
+      </Reveal>
 
       <CTASection
         title="Not sure which services you need?"

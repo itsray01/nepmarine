@@ -34,36 +34,35 @@ function MemberCard({ m, featured = false }) {
   return (
     <Reveal
       variants={scaleIn}
-      className={`group card flex flex-col p-7 transition-shadow duration-300 hover:shadow-card-hover ${
+      className={`group card relative flex flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover ${
         featured ? 'border-brass/30' : ''
       }`}
     >
-      <div className="flex items-center gap-4">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-brass/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+
+      <div className="flex items-center gap-5">
         {m.image ? (
           <img
             src={m.image}
             alt={m.name}
             loading="lazy"
-            className={`${featured ? 'h-20 w-20' : 'h-16 w-16'} rounded-2xl object-cover`}
+            className="h-20 w-20 rounded-2xl object-cover"
           />
         ) : (
-          <span
-            className={`grid place-items-center rounded-2xl bg-gradient-to-br from-tide to-deep font-display font-light text-foam ${
-              featured ? 'h-20 w-20 text-2xl' : 'h-16 w-16 text-xl'
-            }`}
-          >
+          <span className="grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-tide to-deep font-display text-2xl font-light text-foam">
             {initials(m.name)}
           </span>
         )}
         <div>
           <h3
-            className={`font-display font-light text-ink ${
-              featured ? 'text-2xl' : 'text-xl'
+            className={`font-display font-normal leading-snug text-ink ${
+              featured ? 'text-[1.7rem]' : 'text-2xl'
             }`}
           >
             {m.name}
           </h3>
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-brass-deep/80">
+          <p className="mt-1 flex items-center gap-2 font-mono text-sm uppercase tracking-[0.16em] text-brass-deep/80">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass" />
             {m.role}
           </p>
         </div>
@@ -73,7 +72,7 @@ function MemberCard({ m, featured = false }) {
         <p className="mt-6 text-sm leading-relaxed text-slate">{m.focus}</p>
       )}
 
-      <div className="mt-6 flex items-center gap-2.5 border-t border-line pt-5">
+      <div className="mt-6 flex items-center justify-end gap-2.5 border-t border-line pt-5">
         {m.email && (
           <IconLink href={`mailto:${m.email}`} icon={Mail} label={`Email ${m.name}`} />
         )}

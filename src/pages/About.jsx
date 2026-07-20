@@ -1,23 +1,22 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Compass, HeartHandshake, Gauge, ShieldCheck, Check } from 'lucide-react'
+import { ArrowRight, Compass, HeartHandshake, Clock, ShieldCheck, Check, Target, Eye } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import Parallax from '../components/Parallax'
 import SectionHeading from '../components/SectionHeading'
-import CTASection from '../components/CTASection'
 import { fadeUp, scaleIn, stagger } from '../lib/motion'
 import { stats, process } from '../lib/content'
 
 const values = [
   {
+    icon: Clock,
+    title: 'On alert, around the clock',
+    body: 'Our team monitors every port call 24/7 and responds the moment your vessel needs us — day or night, across every time zone.',
+  },
+  {
     icon: HeartHandshake,
     title: 'Reliability first',
     body: 'We treat every port call as if our own vessel were on the line. Calm, prepared, and accountable.',
-  },
-  {
-    icon: Gauge,
-    title: 'Speed without shortcuts',
-    body: 'Fast clearances and tight turnarounds, never at the expense of compliance or quality.',
   },
   {
     icon: ShieldCheck,
@@ -33,12 +32,16 @@ const values = [
 
 const missionVision = [
   {
+    icon: Target,
+    eyebrow: 'Our mission',
     title: 'Mission',
-    body: 'Our strength lies in our effort to continuously search for new and innovative ways to service our clients better. We are determined to deliver the best services, in terms of work quality, responsiveness to client needs, and competitive pricing.',
+    body: 'Our strength lies in our continuous efforts to reduce our principals’ operational costs through efficient, cost-effective solutions and timely, transparent communication, providing confidence, assurance and peace of mind throughout every port call.',
   },
   {
+    icon: Eye,
+    eyebrow: 'Our vision',
     title: 'Vision',
-    body: 'To be the preferred maritime agency recognized for pioneering innovation, exceeding client expectations, and delivering unparalleled service quality, responsiveness, and value in every aspect of our operations.',
+    body: 'To be a leading maritime services partner in the region, redefining ship agency through efficiency, innovation, integrity and a client-focused approach.',
   },
 ]
 
@@ -47,7 +50,6 @@ const whyChooseUs = [
   'Specialized husbandry support',
   'Tailored services for every operation',
   'Experienced and dedicated team',
-  'Free guidance to clients',
   'Consistent service quality',
   'Efficient response to client needs',
 ]
@@ -57,7 +59,7 @@ export default function About() {
     <>
       <PageHero
         eyebrow="About us"
-        title="Built in Singapore. Trusted across the straits."
+        title="Founded in Singapore. Trusted across the Region."
         description="Nepmarine Agency was founded in 2024 to give charterers and ship owners a dependable, modern partner that blends regional expertise with a relentless commitment to getting things done."
       >
         <Link to="/contact" className="btn-brass">
@@ -113,16 +115,36 @@ export default function About() {
             align="center"
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {missionVision.map((m) => (
-              <Reveal
-                key={m.title}
-                variants={scaleIn}
-                className="card p-8 sm:p-10"
-              >
-                <h3 className="font-display text-2xl font-light text-ink">{m.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-slate">{m.body}</p>
-              </Reveal>
-            ))}
+            {missionVision.map((m) => {
+              const Icon = m.icon
+              return (
+                <Reveal
+                  key={m.title}
+                  variants={scaleIn}
+                  className="group card relative overflow-hidden p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover sm:p-10"
+                >
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-brass/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-brass/60 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+                  <Icon
+                    className="pointer-events-none absolute -bottom-8 -right-8 h-44 w-44 text-brass/[0.06]"
+                    strokeWidth={1}
+                  />
+
+                  <div className="relative z-10 flex items-center gap-4">
+                    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-line bg-cloud text-brass-deep transition-colors duration-300 group-hover:border-brass/40 group-hover:bg-brass/[0.06]">
+                      <Icon className="h-6 w-6" strokeWidth={1.5} />
+                    </span>
+                    <span className="font-mono text-lg uppercase tracking-[0.22em] text-brass-deep/80">
+                      {m.eyebrow}
+                    </span>
+                  </div>
+
+                  <p className="relative z-10 mt-6 text-base leading-relaxed text-slate">
+                    {m.body}
+                  </p>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -213,8 +235,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <CTASection />
     </>
   )
 }
