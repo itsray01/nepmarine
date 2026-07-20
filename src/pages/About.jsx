@@ -69,36 +69,38 @@ export default function About() {
       </PageHero>
 
       {/* Story */}
-      <section className="shell grid gap-14 py-20 lg:grid-cols-2 lg:items-center">
+      <section className="shell grid gap-14 py-20 lg:grid-cols-2 lg:items-stretch">
         <Reveal variants={fadeUp} className="space-y-6 text-lg leading-relaxed text-slate">
           <p>
-            Founded in Singapore in 2024, Nepmarine delivers reliable agency services to
-            charterers and ship owners, combining quality, innovation, and competitive
-            pricing to support seamless maritime operations.
+            Nepmarine Agency is a Singapore-based shipping and port agency committed to
+            delivering reliable, efficient and customer-focused maritime services.
+            Established in 2024, the company underwent a new phase of growth following a
+            strategic management transition in 2026.
           </p>
           <p>
-            We proudly function as trusted local ship agents for tankers calling at ports
-            across 10 countries. Our expertise lies in overseeing the seamless loading and
-            discharging of petroleum cargoes, ensuring smooth and efficient operations at
-            every step.
+            Under new leadership, Nepmarine has been revitalised with a modern and
+            responsive service approach, prioritising long-term partnerships and customer
+            loyalty over short-term profit.
           </p>
           <p className="text-slate/75">
-            Whether you require a reliable agent for seamless cargo operations or an
-            experienced agent for owner-protective and husbandry matters, we deliver
-            exceptional service tailored to your operations.
+            Our youthful team provides comprehensive agency support across Singapore and
+            the region, including port clearances, cargo operations, bunker coordination,
+            dry-docking support and documentation handling. We serve tankers, LNG carriers,
+            general cargo vessels and naval vessels, ensuring smooth and efficient
+            operations throughout every port calls.
           </p>
         </Reveal>
 
-        <Parallax speed={36}>
-          <Reveal variants={scaleIn} className="relative overflow-hidden rounded-5xl border border-white/10 bg-deep p-10">
+        <Parallax speed={36} className="h-full">
+          <Reveal variants={scaleIn} className="relative flex h-full flex-col justify-center overflow-hidden rounded-5xl border border-white/10 bg-deep p-12">
             <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brass/15 blur-[90px]" />
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-x-10 gap-y-12">
               {stats.map((s) => (
                 <div key={s.label}>
-                  <div className="font-display text-4xl font-light text-gradient-foam">
+                  <div className="font-display text-5xl font-light text-gradient-foam">
                     {s.value}
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-foam/55">{s.label}</p>
+                  <p className="mt-3 text-base leading-relaxed text-foam/55">{s.label}</p>
                 </div>
               ))}
             </div>

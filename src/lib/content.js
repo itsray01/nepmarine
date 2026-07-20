@@ -376,17 +376,6 @@ export const teamGroups = [
     ],
   },
   {
-    title: 'Business Relations',
-    members: [
-      {
-        name: 'Lee Yi Xuan',
-        role: 'Business Relations',
-        email: 'agency@nepmarine.com',
-        image: '',
-      },
-    ],
-  },
-  {
     title: 'HR & Accounts',
     members: [
       {
@@ -394,7 +383,7 @@ export const teamGroups = [
         role: 'HR & Accounts Manager',
         email: 'agency@nepmarine.com',
         businessCard: 'https://s.blinq.me/cmr3g675o00940cs6y78xrp42?bs=icl',
-        image: '',
+        image: '/team-nadhira.png',
       },
     ],
   },

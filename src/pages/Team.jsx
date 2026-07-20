@@ -30,13 +30,13 @@ function IconLink({ href, icon: Icon, label, external = false }) {
   )
 }
 
-function MemberCard({ m, featured = false }) {
+function MemberCard({ m, featured = false, className = '' }) {
   return (
     <Reveal
       variants={scaleIn}
       className={`group card relative flex flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover ${
         featured ? 'border-brass/30' : ''
-      }`}
+      } ${className}`}
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-brass/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
 
@@ -109,13 +109,18 @@ export default function Team() {
       </PageHero>
 
       <section className="shell pb-24">
-        {/* Team — 3 x 2 grid, General Manager first */}
+        {/* Team — top row of 3, bottom row of 2 centered */}
         <Reveal
           variants={stagger(0.08)}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6"
         >
           {members.map((m, i) => (
-            <MemberCard key={m.name} m={m} featured={i === 0} />
+            <MemberCard
+              key={m.name}
+              m={m}
+              featured={i === 0}
+              className={`lg:col-span-2 ${i === 3 ? 'lg:col-start-2' : ''}`}
+            />
           ))}
         </Reveal>
 
