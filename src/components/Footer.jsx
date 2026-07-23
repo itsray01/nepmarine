@@ -31,7 +31,7 @@ export default function Footer() {
             <Logo />
             <p className="mt-6 text-sm leading-relaxed text-foam/60">
               Founded in Singapore in 2024, Nepmarine Agency delivers reliable ship
-              agency support to charterers and owners, serving 10 countries.
+              agency support to charterers and owners, serving 13 countries.
             </p>
 
             <span className="mt-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-foam/70">
@@ -101,7 +101,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-foam/75">
                 <MapPin className="h-4 w-4 text-spray" />
-                Serving 10 Countries
+                Serving 13 Countries
               </li>
             </ul>
           </div>

@@ -62,7 +62,7 @@ export default function GlobeSection({
         </motion.div>
 
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-foam/40">
-          {globePorts.length} ports · {new Set(globePorts.map((p) => p.name)).size} countries
+          {new Set(globePorts.map((p) => p.name)).size} countries
         </span>
       </div>
 

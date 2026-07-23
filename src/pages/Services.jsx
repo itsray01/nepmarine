@@ -123,32 +123,75 @@ export default function Services() {
       <section className="shell pb-16">
         <Reveal variants={scaleIn}>
           <div className="relative overflow-hidden rounded-5xl border border-white/10 bg-deep p-8 sm:p-12">
-            <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-brass/15 blur-[110px]" />
-            <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-tide/25 blur-[120px]" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-brass/15 blur-[110px]"
+              animate={{ opacity: [0.55, 0.95, 0.55], scale: [1, 1.1, 1] }}
+              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-tide/25 blur-[120px]"
+              animate={{ opacity: [0.6, 1, 0.6], scale: [1.08, 1, 1.08] }}
+              transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* Confidential stamp watermark — subtle, tucked into the lower-right */}
+            <motion.span
+              aria-hidden
+              className="pointer-events-none absolute -bottom-2 right-6 z-0 select-none font-mono text-[1.65rem] font-semibold uppercase tracking-[0.42em] text-foam sm:right-10 sm:text-[2.06rem]"
+              animate={{ opacity: [0.035, 0.07, 0.035] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              Confidential
+            </motion.span>
 
             <div className="relative z-10 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-center">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-brass-light">
-                  <Lock className="h-3.5 w-3.5" />
-                  Specialised Services
-                </span>
+                <motion.span
+                  className="relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-brass/25 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-brass-light"
+                  animate={{ borderColor: ['rgba(201,162,90,0.2)', 'rgba(201,162,90,0.5)', 'rgba(201,162,90,0.2)'] }}
+                  transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <motion.span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    animate={{ x: ['-130%', '130%'] }}
+                    transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.6 }}
+                  >
+                    <span className="block h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-brass-light/25 to-transparent" />
+                  </motion.span>
+                  <motion.span
+                    className="relative flex"
+                    animate={{ scale: [1, 1.18, 1], opacity: [0.75, 1, 0.75] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <Lock className="h-3.5 w-3.5" />
+                  </motion.span>
+                  <span className="relative">Specialised Services</span>
+                </motion.span>
                 <h2 className="mt-6 font-display text-display-sm font-light leading-[1.05] text-foam">
-                  Discreet husbandry for naval and defence vessels.
+                  Disclosed husbandry for naval and defence organisation.
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-relaxed text-foam/70">
-                  Nepmarine is entrusted with the confidential handling of warships and
-                  naval vessels, delivering complete naval husbandry services across both
-                  offshore and onshore operations. We support defence and military
-                  activities with the utmost discretion — coordinating secure port calls,
-                  husbandry, and logistics while safeguarding every operational detail.
+                  Nepmarine is entrusted with the confidential handling of military
+                  assets, delivering complete naval husbandry services across both
+                  offshore and onshore operations. We support defence logistics and
+                  military activities with the utmost discretion.
                 </p>
-                <p className="mt-4 max-w-xl text-sm leading-relaxed text-foam/50">
+                <p className="mt-4 max-w-xl text-[0.96rem] leading-relaxed text-foam/50">
                   Our naval desk operates under strict confidentiality. We are proud to
                   serve, and we never disclose the specifics of the assignments we handle.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <motion.div
+                className="grid gap-4 sm:grid-cols-2"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-80px' }}
+                variants={{ show: { transition: { staggerChildren: 0.12 } } }}
+              >
                 {[
                   { icon: Lock, title: 'Total confidentiality', body: 'Need-to-know handling with no public disclosure of vessels or movements.' },
                   { icon: ShieldCheck, title: 'Secure port calls', body: 'Controlled access, vetted vendors, and protected logistics chains.' },
@@ -157,21 +200,26 @@ export default function Services() {
                 ].map((f) => {
                   const Icon = f.icon
                   return (
-                    <div
+                    <motion.div
                       key={f.title}
-                      className="rounded-3xl border border-white/10 bg-white/[0.03] p-5"
+                      variants={{
+                        hidden: { opacity: 0, y: 18 },
+                        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+                      }}
+                      whileHover={{ y: -4 }}
+                      className="group/card rounded-3xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-brass/30 hover:bg-white/[0.05]"
                     >
-                      <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-brass-light">
+                      <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-brass-light transition-all duration-300 group-hover/card:border-brass/40 group-hover/card:bg-brass/10">
                         <Icon className="h-5 w-5" strokeWidth={1.6} />
                       </span>
                       <h3 className="mt-4 font-display text-lg font-light text-foam">
                         {f.title}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-foam/55">{f.body}</p>
-                    </div>
+                    </motion.div>
                   )
                 })}
-              </div>
+              </motion.div>
             </div>
           </div>
         </Reveal>

@@ -1,7 +1,7 @@
 import {
   Ship,
   Anchor,
-  Wrench,
+  ShipWheel,
   LifeBuoy,
   Fuel,
   Users,
@@ -15,9 +15,9 @@ import {
 
 export const stats = [
   { value: '24/7', label: 'Operational coverage across all serviced ports' },
-  { value: '10', label: 'Countries served across Asia-Pacific and beyond' },
+  { value: '13', label: 'Countries served across Asia-Pacific and beyond' },
   { value: '2024', label: 'Founded in Singapore, built on decades of know-how' },
-  { value: '100%', label: 'Owner-protective, transparent husbandry handling' },
+  { value: '100%', label: 'Effective resolution rate for client enquiries and operational requirements' },
 ]
 
 export const serviceGroups = [
@@ -32,20 +32,20 @@ export const serviceGroups = [
       'Comprehensive port agency solutions',
       'Direct operations in Singapore',
       'Coordinated support via established sub-agents',
-      'Extensive coverage across Southeast Asia',
+      'Extensive coverage across Asia Pacific',
     ],
   },
   {
     id: 'operational',
     number: '02',
-    icon: Wrench,
+    icon: ShipWheel,
     title: 'Operational Support',
     summary:
       'Keep vessels moving with responsive on-the-ground support around the clock.',
     points: [
       'Bunker & deslop operation coordination',
       'Fresh water & supply boat arrangements',
-      'Crew change, medical visits & visas',
+      'Crew change, medical consultation visits & visas arrangements',
       'Cash to master (CTM)',
     ],
   },
@@ -59,9 +59,10 @@ export const serviceGroups = [
     points: [
       'Ship-to-ship (STS) coordination',
       'Underwater cleaning & inspection',
-      'Discreet naval & warship husbandry',
+      'Disclosed naval & warship husbandry',
       'Purchase & delivery of ship spares',
-      'BL signing assistance',
+      'B/L services',
+      'Ship chandling',
     ],
   },
   {
@@ -74,8 +75,8 @@ export const serviceGroups = [
     points: [
       '24/7 vessel movement updates',
       'Multi-channel communication tailored to client preferences',
-      'Cost-efficient service coordination',
-      'Competitive sourcing and expense control',
+      'Cost-efficient coordination through competitive sourcing and expense control.',
+      'Prompt updates of local port regulatory changes',
     ],
   },
 ]
@@ -89,9 +90,9 @@ export const bentoFeatures = [
   {
     icon: Container,
     title: 'Reliable Cargo Operations',
-    body: 'Smooth loading, discharge, and turnaround supervision that protects your schedule and your cargo.',
-    image: img('photo-1769144256181-698b8f807066'),
-    imageAlt: 'Container ship being loaded with colourful cargo at port',
+    body: 'Prompt loading, discharge, and turnaround notifications to safeguard your company’s interests.',
+    image: '/bunker-coordination.png',
+    imageAlt: 'Aerial view of tankers and vessels anchored at a busy anchorage',
   },
   {
     icon: ShieldCheck,
@@ -104,20 +105,21 @@ export const bentoFeatures = [
     icon: Fuel,
     title: 'Bunker Coordination',
     body: 'Timely, well-documented bunker calls across all serviced ports.',
-    image: img('photo-1530890448995-4d82724f702c'),
-    imageAlt: 'Tanker moored at a port at dusk',
+    image: '/cargo-operations.png',
+    imageAlt: 'Bunker tanker moored alongside a vessel during a ship-to-ship operation',
   },
   {
     icon: Users,
-    title: 'Crew Change Logistics',
-    body: 'End-to-end crew rotations with immigration handled and travel arranged.',
+    title: 'Crew Change Arrangements',
+    body: 'Encompasses all services within crew change, in accordance with individual port regulations.',
     image: img('photo-1776661616822-ba34fe4e5638'),
     imageAlt: 'Crew members working on the deck of a cargo ship',
   },
   {
     icon: Droplets,
-    title: 'Underwater Services',
-    body: 'Hull cleaning, inspections, and STS support coordinated to spec.',
+    title: 'Miscellaneous Services',
+    body: 'Contact us for further details.',
+    example: 'e.g. Underwater Service, Fresh Water Testing, Loadline Painting',
     image: img('photo-1758656993377-e7be90b57557'),
     imageAlt: 'Divers working underwater alongside a large ship hull',
   },
@@ -132,7 +134,7 @@ export const testimonials = [
   },
   {
     quote:
-      'The team at NEPMARINE consistently goes above and beyond. From bunker operations to crew changes, they manage everything seamlessly. Their in-depth knowledge of ports across 10 countries makes them an invaluable partner for our fleet.',
+      'The team at NEPMARINE consistently goes above and beyond. From bunker operations to crew changes, they manage everything seamlessly. Their in-depth knowledge of ports across 13 countries makes them an invaluable partner for our fleet.',
     name: 'Sophia T.',
     role: 'Chartering Director',
   },
@@ -147,7 +149,7 @@ export const testimonials = [
 export const ports = [
   {
     country: 'Singapore',
-    tagline: 'The maritime crossroads of Asia',
+    tagline: '1.3041° N, 103.8535° E',
     body: 'Round-the-clock agency at the world’s busiest transshipment hub, ensuring seamless coordination and efficient support throughout every port call.',
     harbours: ['Singapore'],
     icon: Compass,
@@ -224,6 +226,24 @@ export const ports = [
     body: 'Trusted attendance across the Philippines’ principal harbours and transhipment anchorages.',
     harbours: ['Port of Manila', 'Batangas', 'Subic Bay', 'Cebu'],
     icon: Users,
+  },
+  {
+    country: 'Taiwan',
+    tagline: 'Cross-strait gateway',
+    body: 'Reliable attendance and clearances across Taiwan’s principal container and bulk terminals.',
+    icon: Anchor,
+  },
+  {
+    country: 'Hong Kong',
+    tagline: 'Pearl River hub',
+    body: 'Efficient agency support at one of the world’s busiest deep-water harbours and transhipment centres.',
+    icon: Waves,
+  },
+  {
+    country: 'Australia',
+    tagline: 'Southern ocean reach',
+    body: 'Dependable port-call handling across Australia’s major bulk and container gateways.',
+    icon: Ship,
   },
 ]
 
@@ -331,6 +351,36 @@ export const globePorts = [
     phone: '+63 2 8527 0000',
     email: 'philippines@nepmarine.com',
   },
+  {
+    id: 'taiwan',
+    name: 'Taiwan',
+    port: 'Port of Kaohsiung',
+    lat: 22.6163,
+    lng: 120.2833,
+    address: 'Kaohsiung Harbor, Kaohsiung 803',
+    phone: '+886 7 561 0000',
+    email: 'taiwan@nepmarine.com',
+  },
+  {
+    id: 'hongkong',
+    name: 'Hong Kong',
+    port: 'Kwai Tsing Terminals',
+    lat: 22.3193,
+    lng: 114.1360,
+    address: 'Kwai Chung, New Territories, Hong Kong',
+    phone: '+852 2100 0000',
+    email: 'hongkong@nepmarine.com',
+  },
+  {
+    id: 'australia',
+    name: 'Australia',
+    port: 'Port Botany, Sydney',
+    lat: -33.9600,
+    lng: 151.2300,
+    address: 'Port Botany, Sydney NSW 2036',
+    phone: '+61 2 9394 0000',
+    email: 'australia@nepmarine.com',
+  },
 ]
 
 // Leadership. Add an `image` URL to any member to show a photo instead of the
@@ -353,7 +403,7 @@ export const teamGroups = [
         name: 'Abel Lam',
         role: 'Commercial Operations',
         email: 'agency@nepmarine.com',
-        image: '',
+        image: '/team-abel.png',
       },
       {
         name: 'Charmaine Yeow',

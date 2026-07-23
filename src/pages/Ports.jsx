@@ -1,4 +1,5 @@
 import { ArrowRight, Navigation, MapPin, Clock, Ship, Droplets, Building2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import GlobeSection from '../components/GlobeSection'
 import Reveal from '../components/Reveal'
@@ -19,6 +20,9 @@ const flagByCountry = {
   Bangladesh: 'bd',
   Guam: 'gu',
   Philippines: 'ph',
+  Taiwan: 'tw',
+  'Hong Kong': 'hk',
+  Australia: 'au',
 }
 
 const flagUrl = (country) => `https://flagcdn.com/w640/${flagByCountry[country]}.png`
@@ -35,9 +39,14 @@ const regions = [
     countries: ['India', 'Bangladesh'],
   },
   {
-    label: 'East Asia & Pacific',
-    note: 'Deep-water & waypoint calls',
-    countries: ['China', 'Guam'],
+    label: 'East Asia',
+    note: 'Deep-water gateways',
+    countries: ['China', 'Taiwan', 'Hong Kong'],
+  },
+  {
+    label: 'Pacific & Oceania',
+    note: 'Waypoint & southern reach',
+    countries: ['Guam', 'Australia'],
   },
 ]
 
@@ -79,7 +88,7 @@ function PortCard({ p }) {
 }
 
 const hubHighlights = [
-  { icon: Building2, label: 'Global head office & command centre' },
+  { icon: Building2, label: 'Global hub office as control centre' },
   { icon: Ship, label: 'Dedicated in-house agency services' },
   { icon: Clock, label: '24/7 vessel attendance & clearances' },
   { icon: Droplets, label: 'Coverage of dry and wet docking' },
@@ -101,21 +110,62 @@ export default function Ports() {
       <section className="shell pt-16">
         <Reveal variants={scaleIn}>
           <div className="relative overflow-hidden rounded-5xl border border-white/10 bg-deep p-8 sm:p-12">
-            <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-brass/15 blur-[110px]" />
-            <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-tide/25 blur-[120px]" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-brass/15 blur-[110px]"
+              animate={{ opacity: [0.5, 0.9, 0.5], scale: [1, 1.08, 1] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-tide/25 blur-[120px]"
+              animate={{ opacity: [0.6, 1, 0.6], scale: [1.05, 1, 1.05] }}
+              transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+            />
 
             <div className="relative z-10 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-brass-light">
-                  <MapPin className="h-3.5 w-3.5" />
+                <motion.span
+                  className="relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-brass/25 bg-white/[0.04] px-5 py-2 font-mono text-[13px] uppercase tracking-[0.28em] text-brass-light"
+                  animate={{ borderColor: ['rgba(201,162,90,0.2)', 'rgba(201,162,90,0.55)', 'rgba(201,162,90,0.2)'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <motion.span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    animate={{ x: ['-120%', '120%'] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.4 }}
+                  >
+                    <span className="block h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-brass-light/25 to-transparent" />
+                  </motion.span>
+                  <motion.span
+                    className="relative flex"
+                    animate={{ y: [0, -2, 0] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <MapPin className="h-4 w-4" />
+                  </motion.span>
                   Primary hub
-                </span>
+                </motion.span>
                 <h2 className="mt-6 font-display text-display-sm font-light leading-[1.05] text-foam">
                   {hub.country}
                 </h2>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-brass-light/80">
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-4 flex items-center gap-2 font-mono text-sm tracking-[0.12em] text-brass-light sm:text-base"
+                >
+                  <Navigation className="h-4 w-4 shrink-0 text-brass-light/70" strokeWidth={1.6} />
                   {hub.tagline}
-                </p>
+                  <motion.span
+                    aria-hidden
+                    className="inline-block h-4 w-px bg-brass-light/70"
+                    animate={{ opacity: [1, 0.15, 1] }}
+                    transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                </motion.p>
                 <p className="mt-5 max-w-md text-lg leading-relaxed text-foam/70">
                   {hub.body}
                 </p>
@@ -153,7 +203,7 @@ export default function Ports() {
           {regions.map((region) => (
             <div key={region.label}>
               <Reveal variants={fadeUp} className="flex items-baseline justify-between border-b border-line pb-4">
-                <h2 className="font-display text-2xl font-light text-ink">{region.label}</h2>
+                <h2 className="font-display text-[1.7rem] font-light text-ink">{region.label}</h2>
                 <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-brass-deep/70">
                   {region.note}
                 </span>

@@ -71,6 +71,11 @@ export default function StickyShowcase({
                     <p className="mt-4 max-w-sm text-base leading-relaxed text-foam/65">
                       {current?.body}
                     </p>
+                    {current?.example && (
+                      <p className="mt-3 max-w-sm font-mono text-sm leading-relaxed text-brass-light/80">
+                        {current.example}
+                      </p>
+                    )}
                   </motion.div>
                 </AnimatePresence>
 
@@ -146,6 +151,11 @@ export default function StickyShowcase({
                       <p className="pt-3 text-base leading-relaxed text-slate">
                         {f.body}
                       </p>
+                      {f.example && (
+                        <p className="pt-2 font-mono text-sm leading-relaxed text-brass-deep/80">
+                          {f.example}
+                        </p>
+                      )}
                     </motion.div>
                   </div>
                 </motion.div>

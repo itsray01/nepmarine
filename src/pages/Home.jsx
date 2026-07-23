@@ -97,6 +97,11 @@ export default function Home() {
             'Husbandry',
             'Cargo Supervision',
             'Underwater Cleaning',
+            'Medical Arrangements',
+            'Service Attendance',
+            'Provision Supply',
+            'Bill of Lading Services',
+            'Industry Conference Liaison',
           ]}
         />
       </div>

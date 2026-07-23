@@ -54,8 +54,8 @@ function Earth() {
           map={texture}
           emissive="#ffffff"
           emissiveMap={texture}
-          emissiveIntensity={0.28}
-          color="#9aa6b8"
+          emissiveIntensity={0.31}
+          color="#a4afbf"
           roughness={0.95}
           metalness={0}
         />
