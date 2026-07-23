@@ -63,10 +63,10 @@ export default function PhaseJourney() {
 
               {/* Photo */}
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.9, ease: easeExpo }}
+                initial={{ opacity: 0, y: i === 0 ? 96 : 40, scale: i === 0 ? 0.9 : 1 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: i === 0 ? 0.15 : 0.25 }}
+                transition={{ duration: i === 0 ? 2 : 1.7, ease: easeExpo }}
                 className={`relative ${flip ? 'lg:order-2 lg:pl-14' : 'lg:pr-14'}`}
               >
                 <Parallax speed={26}>
@@ -87,10 +87,10 @@ export default function PhaseJourney() {
 
               {/* Text */}
               <motion.div
-                initial={{ opacity: 0, x: flip ? 48 : -48 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.85, ease: easeExpo }}
+                initial={{ opacity: 0, x: flip ? 48 : -48, y: i === 0 ? 48 : 0 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: i === 0 ? 0.15 : 0.3 }}
+                transition={{ duration: i === 0 ? 1.9 : 1.6, ease: easeExpo, delay: i === 0 ? 0.25 : 0.1 }}
                 className={`relative ${flip ? 'lg:order-1 lg:pr-14 lg:text-right' : 'lg:pl-14'}`}
               >
                 {/* Oversized watermark numeral */}
